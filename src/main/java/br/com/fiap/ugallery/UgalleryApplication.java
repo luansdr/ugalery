@@ -1,13 +1,13 @@
-package br.com.fiap.ugalery;
+package br.com.fiap.ugallery;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class UgaleryApplication {
+public class UgalleryApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(UgaleryApplication.class, args);
+		SpringApplication.run(UgalleryApplication.class, args);
 	}
 
 }

@@ -1,10 +1,10 @@
-package br.com.fiap.ugalery;
+package br.com.fiap.ugallery;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class UgaleryApplicationTests {
+class UgalleryApplicationTests {
 
 	@Test
 	void contextLoads() {
