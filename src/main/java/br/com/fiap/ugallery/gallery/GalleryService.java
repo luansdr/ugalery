@@ -3,6 +3,7 @@ package br.com.fiap.ugallery.gallery;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.config.Task;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -18,7 +19,13 @@ public class GalleryService {
 
      public boolean delete(Long id){
         var gallery = repository.findById(id);
-        return repository.deleteById(id);
+        if(gallery.isEmpty()) return false;
+        repository.deleteById(id);
+        return true;
     } 
+
+       public void save(Gallery gallery) {
+        repository.save(gallery);
+    }
     
 }

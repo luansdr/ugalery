@@ -1,23 +1,9 @@
 package br.com.fiap.ugallery.gallery;
 
-import java.util.List;
-
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class GalleryRepository {
+public interface GalleryRepository extends JpaRepository<Gallery, Long> {
 
-    public List<Gallery> findAll() {
-        return null;
-    }
-
-    public boolean deleteById(Long id) {
-
-        return false;
-    }
-
-    public Object findById(Long id) {
-        return null;
-    }
-    
 }
