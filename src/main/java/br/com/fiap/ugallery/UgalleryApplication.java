@@ -1,19 +1,16 @@
 package br.com.fiap.ugallery;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.util.Objects;
-
-import java.io.InputStream;
 import java.io.IOException;
+import java.io.InputStream;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 
 import com.google.auth.oauth2.GoogleCredentials;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
-import org.springframework.core.io.ClassPathResource;
-import org.springframework.core.io.Resource;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class UgalleryApplication {
 

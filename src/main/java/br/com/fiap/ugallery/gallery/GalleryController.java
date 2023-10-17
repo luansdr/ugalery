@@ -1,7 +1,8 @@
 package br.com.fiap.ugallery.gallery;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.config.Task;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -21,10 +22,18 @@ public class GalleryController {
     GalleryService service;
 
     @GetMapping
-    public String index(Model model) {
+    public String index(Model model, @AuthenticationPrincipal OAuth2User user) {
+        model.addAttribute("avatar_url", user.getAttribute("avatar_url"));
         model.addAttribute("gallery", service.findAll());
+        model.addAttribute("tasks", service.findAll());
         return "gallery/index";
     }
+
+    // @GetMapping
+    // public String index(Model model) {
+    //     model.addAttribute("gallery", service.findAll());
+    //     return "gallery/index";
+    // }
 
     @GetMapping("delete/{id}")
     public String delete(@PathVariable Long id, RedirectAttributes redirect) {
@@ -40,12 +49,13 @@ public class GalleryController {
     }
 
     @PostMapping
-    public String save(@Valid Gallery gallery, BindingResult result, RedirectAttributes redirect){
-        if (result.hasErrors()) return "/gallery/form";
+    public String save(@Valid Gallery gallery, BindingResult result, RedirectAttributes redirect) {
+        if (result.hasErrors())
+            return "/gallery/form";
 
         service.save(gallery);
         redirect.addFlashAttribute("success", "Tarefa cadastrada com sucesso");
-        return "redirect:/task";
+        return "redirect:/gallery";
     }
 
 }

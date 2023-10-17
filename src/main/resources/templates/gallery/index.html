@@ -1,50 +1,86 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-    <head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
 
-    <title>Gallery</title>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>U-Gallery</title>
   </head>
-  <body>
-
-    
-  <nav>
-    <div class="nav-wrapper">
-      <a href="#" class="brand-logo">U-Gallery</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li class="active"></li>
-        <li><a href="badges.html">Components</a></li>
-        <li><a href="collapsible.html">JavaScript</a></li>
-      </ul>
-    </div>
-  </nav>
-
-
-  <main class="container">
-
-    <span class="card-panel teal accent-3" th:if="${success}" th:text="${success}"></span>
-
-    <h1>Your gallery</h1>
-
-    
-    <div class="row">
-        <div class="col s3 m3" th:each="gallery : ${gallery}">
-            <div class="card small card-image waves-effect waves-block waves-light">
-                <div class="card-image expanded-image" id="expanded-image">
-                    <img src="https://materializecss.com/images/sample-1.jpg">
-                    <span class="card-title"></span>
-                </div>
-                <div class="card-content">
-                    <p th:text="${gallery}"></p>
-                </div>
-            </div>
-            
+  <body class="grey darken-3 white-text">
+    <nav>
+      <div class="nav-wrapper grey darken-3">
+        <a href="#" class="brand-logo">U-Gallery</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li>
+            <img class="avatar" th:src="${avatar_url}" alt="" />
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <span
+      class="card-panel teal accent-3"
+      th:if="${success}"
+      th:text="${success}"
+    ></span>
+    <span
+      class="card-panel red accent-3 white-text"
+      th:if="${error}"
+      th:text="${error}"
+    ></span>
+    <main class="container">
+      <div id="drop-area">
+        <div class="big-text">
+          <p>
+            Drag & drop files or
+            <span id="browse-button" style="cursor: pointer; color: green"
+              >Browse</span
+            >
+          </p>
+          <input
+            type="file"
+            id="fileElem"
+            accept="image/*"
+            style="display: none"
+          />
         </div>
-    </div>
-   </body>
-  </main>
+        <p class="grey-text">Supported formats: JPEG, PNG</p>
+        <br />
+        <div class="container-preview">
+          <img id="preview" />
+        </div>
+        <input
+          type="text"
+          id="title-input"
+          class="white-text"
+          placeholder="Enter a title"
+        />
+        <div class="container-submit">
+          <button id="upload-button" style="display: none">Upload</button>
+        </div>
+      </div>
 
-  
+      <div class="masonry">
+        <div class="grid" th:each="gallery : ${gallery}">
+          <img th:src="${gallery.imageUrl}" alt="Image" />
+          <div class="grid__body">
+            <div class="relative">
+              <a class="grid__link" target="_blank" href="/"></a>
+              <h1 class="grid__title" th:text="${gallery.title}"></h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+
+  <script src="script.js"></script>
 </html>
