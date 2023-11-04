@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -52,7 +52,7 @@
             style="display: none"
           />
         </div>
-        <p class="grey-text">Supported formats: JPEG, PNG</p>
+        <p class="grey-text" th:text="#{gallery.formats}"></p>
         <br />
         <div class="container-preview">
           <img id="preview" />
@@ -61,7 +61,7 @@
           type="text"
           id="title-input"
           class="white-text"
-          placeholder="Enter a title"
+          placeholder="Digite um titulo"
         />
         <div class="container-submit">
           <button id="upload-button" style="display: none">Upload</button>
