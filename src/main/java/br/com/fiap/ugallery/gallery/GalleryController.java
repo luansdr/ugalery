@@ -29,11 +29,6 @@ public class GalleryController {
         return "gallery/index";
     }
 
-    // @GetMapping
-    // public String index(Model model) {
-    //     model.addAttribute("gallery", service.findAll());
-    //     return "gallery/index";
-    // }
 
     @GetMapping("delete/{id}")
     public String delete(@PathVariable Long id, RedirectAttributes redirect) {
@@ -54,7 +49,7 @@ public class GalleryController {
             return "/gallery/form";
 
         service.save(gallery);
-        redirect.addFlashAttribute("success", "Tarefa cadastrada com sucesso");
+        redirect.addFlashAttribute("success", "Imagem cadastrada com sucesso");
         return "redirect:/gallery";
     }
 

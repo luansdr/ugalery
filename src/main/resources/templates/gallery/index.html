@@ -39,12 +39,10 @@
     <main class="container">
       <div id="drop-area">
         <div class="big-text">
-          <p>
-            Drag & drop files or
-            <span id="browse-button" style="cursor: pointer; color: green"
-              >Browse</span
-            >
+          <p th:text="#{gallery.messageToSend}">
           </p>
+          <span id="browse-button" style="cursor: pointer; color: green" th:text="#{gallery.messageToSendBrowse}"></span
+            >
           <input
             type="file"
             id="fileElem"

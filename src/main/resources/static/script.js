@@ -59,9 +59,8 @@ uploadButton.addEventListener('click', function() {
   if (title.trim() === '') {
     alert('Please enter a title for the image.');
   } else {
-    // Aqui você pode adicionar sua lógica para fazer o upload da imagem e do título.
-    // Você pode enviar esses dados para o servidor usando AJAX ou outro método.
-    alert('Image and title uploaded: ' + title);
+   
+    
     clearForm();
   }
 });
